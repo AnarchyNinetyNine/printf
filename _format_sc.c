@@ -38,11 +38,9 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 	{
 		char *placeholder = va_arg(list, char *);
 
-		switch ((int)!placeholder)
+		if (placeholder == NULL)
 		{
-		case 1:
 			placeholder = "(null)";
-			break;
 		}
 		_puts(placeholder);
 		*charCount += _strlen(placeholder);
