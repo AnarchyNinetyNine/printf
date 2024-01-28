@@ -20,8 +20,7 @@ int _printf(const char * const format, ...)
 	formatPlaceholder = format;
 	if (!format[0] || (*(format + 0) == '%' && !*(format + 1)))
 		return (-1);
-
-	if (*(format + 0) == '%' && (*(format + 1) == ' ' && *(format + 2) == '\0'))
+	if (*(format + 0) == '%' && (*(format + 1) == ' ' && !*(format + 2)))
 		return (-1);
 	if (*(format + 0) == '%' && (*(format + 1) == ' ' && *(format + 2) == ' '))
 	{
@@ -29,9 +28,7 @@ int _printf(const char * const format, ...)
 			formatPlaceholder++;
 		formatPlaceholder++;
 	}
-
 	va_start(list, format);
-
 	while (*formatPlaceholder)
 	{
 		switch (_fetch_specifier(*formatPlaceholder))
