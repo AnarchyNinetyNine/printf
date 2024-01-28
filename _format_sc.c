@@ -41,6 +41,8 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 	}
 	default:
 	{
+		*charCount += _putchar(*(--fmt));
+		*charCount += _putchar(*(++fmt));
 		break;
 	}
 	}
