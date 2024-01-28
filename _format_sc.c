@@ -1,6 +1,29 @@
 #include "main.h"
 
 /**
+ * _skip_space - A function that moves fmt to the next location if space found.
+ * @fmt: Format specifier.
+ */
+
+void _skip_space(const char *fmt)
+{
+	while (*fmt == ' ')
+		fmt++;
+}
+
+/**
+ * _handle_default_case - Handle defualt case.
+ * @fmt: Format Specifier.
+ * @charCount: A pointer to the total printed characters.
+ */
+
+void _handle_default_case(const char *fmt, int *charCount)
+{
+	*charCount += _putchar(*(--fmt));
+	*charCount += _putchar(*(++fmt));
+}
+
+/**
  * _format_sc - A function that handles and prints char/string args..
  * @list: A variable of type va_list.
  * @fmt: Format specifier, either s (for string), or c (for char).
@@ -9,8 +32,6 @@
 
 void _format_sc(va_list list, const char *fmt, int *charCount)
 {
-	while (*fmt == ' ')
-		++fmt;
 	switch (*fmt)
 	{
 	case 's':
@@ -20,7 +41,7 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 		switch ((int)!placeholder)
 		{
 		case 1:
-			placeholder = "nan";
+			placeholder = "(null)";
 			break;
 		}
 		_puts(placeholder);
@@ -39,12 +60,16 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 		*charCount += _putchar(*fmt);
 		break;
 	}
+	case ' ':
+	{
+		_skip_space(fmt);
+		_format_sc(list, fmt, charCount);
+		break;
+	}
 	default:
 	{
-		*charCount += _putchar(*(--fmt));
-		*charCount += _putchar(*(++fmt));
+		_handle_default_case(fmt, charCount);
 		break;
 	}
 	}
 }
-
