@@ -13,17 +13,22 @@ int _printf(const char * const format, ...)
 {
 	va_list list;
 	int *charCount = malloc(sizeof(int));
-	char fmt;
 	int count;
 	const char *formatPlaceholder;
 
 	*charCount = 0;
 	formatPlaceholder = format;
-	if (!format || (*(format) == '%' && !*(format + 1)))
+	if (!format[0] || (*(format + 0) == '%' && !*(format + 1)))
 		return (-1);
 
-	if ((*format == '%' && (*(format + 1) == ' ' && !*(format + 2))))
+	if (*(format + 0) == '%' && (*(format + 1) == ' ' && *(format + 2) == '\0'))
 		return (-1);
+	if (*(format + 0) == '%' && (*(format + 1) == ' ' && *(format + 2) == ' '))
+	{
+		while (*(formatPlaceholder + 1) == ' ')
+			formatPlaceholder++;
+		formatPlaceholder++;
+	}
 
 	va_start(list, format);
 
@@ -33,8 +38,7 @@ int _printf(const char * const format, ...)
 		{
 		case 0:
 		{
-			fmt = *(++formatPlaceholder);
-			_format_sc(list, fmt, charCount);
+			_format_sc(list, ++formatPlaceholder, charCount);
 			break;
 		}
 		default:

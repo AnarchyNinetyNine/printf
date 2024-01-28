@@ -7,9 +7,11 @@
  * @charCount: A pointer to the total printed characters.
  */
 
-void _format_sc(va_list list, char fmt, int *charCount)
+void _format_sc(va_list list, const char *fmt, int *charCount)
 {
-	switch (fmt)
+	while (*fmt == ' ')
+		++fmt;
+	switch (*fmt)
 	{
 	case 's':
 	{
@@ -18,7 +20,7 @@ void _format_sc(va_list list, char fmt, int *charCount)
 		switch ((int)!placeholder)
 		{
 		case 1:
-			placeholder = "(null)";
+			placeholder = "nan";
 			break;
 		}
 		_puts(placeholder);
@@ -34,10 +36,15 @@ void _format_sc(va_list list, char fmt, int *charCount)
 	}
 	case '%':
 	{
-		*charCount += _putchar(fmt);
+		*charCount += _putchar(*fmt);
 		break;
 	}
 	default:
+	{
+		*charCount += _putchar(*(--fmt));
+		*charCount += _putchar(*(++fmt));
 		break;
 	}
+	}
 }
+
