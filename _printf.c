@@ -9,7 +9,7 @@
  *         # -1 otherwise, on (Failure).
  */
 
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
 	va_list list;
 	int *charCount = malloc(sizeof(int));

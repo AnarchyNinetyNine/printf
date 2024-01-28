@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 
 int _fetch_specifier(char format);
 void _format_sc(va_list list, const char *fmt, int *charCount);
