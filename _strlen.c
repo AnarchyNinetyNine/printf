@@ -6,7 +6,6 @@
  *
  * Return: The length of a string.
  */
-
 int _strlen(char *s)
 {
 	if (*s == '\0')

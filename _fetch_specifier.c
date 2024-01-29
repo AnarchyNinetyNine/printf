@@ -7,7 +7,6 @@
  * Return: # 0 if % is detected. (Success).
  *         # 1 otherwise. (Failure).
  */
-
 int _fetch_specifier(char format)
 {
 	return (format != '%');

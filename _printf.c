@@ -8,7 +8,6 @@
  * Return: # Number of printed characters. on (Succeess).
  *         # -1 otherwise, on (Failure).
  */
-
 int _printf(const char *format, ...)
 {
 	va_list list;
