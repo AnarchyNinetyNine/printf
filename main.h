@@ -1,5 +1,5 @@
-#ifndef _PRINTF_
-#define _PRINTF_
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -14,4 +14,4 @@ void _puts(char *s);
 int _putchar(char c);
 
 
-#endif /* _PRINTF_ */
+#endif /* _MAIN_H_ */
