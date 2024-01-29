@@ -7,7 +7,7 @@
 
 void _skip_space(const char *fmt)
 {
-	while (*fmt == ' ')
+	while (*(fmt) == ' ')
 		fmt++;
 }
 
@@ -19,8 +19,8 @@ void _skip_space(const char *fmt)
 
 void _handle_default_case(const char *fmt, int *charCount)
 {
-	*charCount += _putchar(*(--fmt));
-	*charCount += _putchar(*(++fmt));
+	*charCount += _putchar('%');
+	*charCount += _putchar(*(fmt));
 }
 
 /**

@@ -14,37 +14,35 @@ int _printf(const char *format, ...)
 	va_list list;
 	int *charCount = malloc(sizeof(int));
 	int count;
-	const char *formatPlaceholder;
 
 	*charCount = 0;
-	formatPlaceholder = format;
 	if (!format[0] || (*(format + 0) == '%' && !*(format + 1)))
 		return (-1);
 	if (*(format + 0) == '%' && (*(format + 1) == ' ' && !*(format + 2)))
 		return (-1);
-	if (*(format + 0) == '%' && (*(format + 1) == ' ' && *(format + 2) == ' '))
+	if (*(format + 0) == '%' && (*(format + 1) == ' '))
 	{
-		while (*(formatPlaceholder + 1) == ' ')
-			formatPlaceholder++;
-		formatPlaceholder++;
+		while (*(format + 1) == ' ')
+			format++;
+		format++;
 	}
 	va_start(list, format);
-	while (*formatPlaceholder)
+	while (*format)
 	{
-		switch (_fetch_specifier(*formatPlaceholder))
+		switch (_fetch_specifier(*format))
 		{
 		case 0:
 		{
-			_format_sc(list, ++formatPlaceholder, charCount);
+			_format_sc(list, ++format, charCount);
 			break;
 		}
 		default:
 		{
-			*charCount += _putchar(*formatPlaceholder);
+			*charCount += _putchar(*format);
 			break;
 		}
 		}
-		++formatPlaceholder;
+		++format;
 	}
 	va_end(list);
 	count = *charCount;
