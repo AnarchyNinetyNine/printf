@@ -48,9 +48,9 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 	}
 	case 'c':
 	{
-		int placeholder = va_arg(list, int);
+		char placeholder = va_arg(list, int);
 
-		*charCount += write(1, placeholder, 1);
+		*charCount += write(1, &placeholder, 1);
 		break;
 	}
 	case '%':
