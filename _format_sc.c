@@ -50,7 +50,7 @@ void _format_sc(va_list list, const char *fmt, int *charCount)
 	{
 		int placeholder = va_arg(list, int);
 
-		*charCount += _putchar(placeholder);
+		*charCount += write(1, placeholder, 1);
 		break;
 	}
 	case '%':
