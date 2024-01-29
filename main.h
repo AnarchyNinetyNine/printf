@@ -1,5 +1,5 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -14,4 +14,4 @@ void _puts(char *s);
 int _putchar(char c);
 
 
-#endif /* _MAIN_H_ */
+#endif /* MAIN_H */
