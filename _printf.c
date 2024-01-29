@@ -11,10 +11,11 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int *charCount = malloc(sizeof(int));
+	int *charCount;
 	int count;
-
-	*charCount = 0;
+	
+	count = 0;
+	charCount = &count;
 	if (!format || (*(format + 0) == '%' && !*(format + 1)))
 		return (-1);
 	if (*(format + 0) == '%' && (*(format + 1) == ' ' && !*(format + 2)))
@@ -44,7 +45,5 @@ int _printf(const char *format, ...)
 		++format;
 	}
 	va_end(list);
-	count = *charCount;
-	free(charCount);
 	return (count);
 }
