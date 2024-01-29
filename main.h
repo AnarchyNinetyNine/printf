@@ -1,5 +1,5 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef _PRINTF_
+#define _PRINTF_
 
 #include <unistd.h>
 #include <stdlib.h>
@@ -12,4 +12,4 @@ int _printf(const char *format, ...);
 void _puts(char *s);
 int _putchar(char c);
 
-#endif /* _MAIN_H_ */
+#endif /* _PRINTF_ */
