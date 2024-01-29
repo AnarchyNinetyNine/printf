@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	va_list list;
 	int *charCount;
 	int count;
-	
+
 	count = 0;
 	charCount = &count;
 	if (!format || (*(format + 0) == '%' && !*(format + 1)))
