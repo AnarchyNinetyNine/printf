@@ -8,6 +8,7 @@
  * Return: # Number of printed characters. on (Succeess).
  *         # -1 otherwise, on (Failure).
  */
+
 int _printf(const char *format, ...)
 {
 	va_list list;
@@ -33,7 +34,7 @@ int _printf(const char *format, ...)
 		{
 		case 0:
 		{
-			_format_sc(list, ++format, charCount);
+			_handle_fmt(list, ++format, charCount);
 			break;
 		}
 		default:
