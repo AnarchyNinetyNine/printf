@@ -13,6 +13,8 @@ void _handle_fmt(va_list list, const char *fmt, int *charCount)
 		_format_sc(list, fmt, charCount);
 	else if (*fmt == '%')
 		*charCount += _putchar(*fmt);
+	else if (*fmt == 'd' || 'i')
+		_format_digits(list, charCount);
 	else if (*fmt == ' ')
 	{
 		_skip_space(fmt);
