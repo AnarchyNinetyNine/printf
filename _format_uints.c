@@ -10,7 +10,7 @@ void _format_uints(va_list list, int *charCount)
 {
 	int i;
 	unsigned int num;
-	char output[9];
+	char output[35];
 
 	num = va_arg(list, unsigned int);
 	i = 0;
