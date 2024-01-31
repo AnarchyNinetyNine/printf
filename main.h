@@ -17,5 +17,7 @@ int _strlen(char *s);
 int _printf(const char *format, ...);
 void _puts(char *s);
 int _putchar(char c);
+void _format_uints(va_list list, int *charCount);
+void _print_rev_recursion(char *s);
 
 #endif /* _MAIN_H_ */
